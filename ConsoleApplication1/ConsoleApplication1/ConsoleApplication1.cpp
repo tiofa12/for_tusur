@@ -39,6 +39,14 @@ void insert_rec(record** book, record* new_rec)
 
 }
 
+
+
+
+//НАСТАСИЯ
+
+
+
+
 /** Ищет запись по фамилии name. Возвращает  указатель на запись, содержащую введённую фамилию.  NULL, если фамилии нет в книге. */
 record* search_record(record** book, char* name)
 {
