@@ -79,7 +79,7 @@ record* search_record(record** book, char* name)
    // for (int i = 0; i < n; i++)
    // {
         //if (strcmp(book[i].name, name) == 0) return ?;
-       // else if (strcmp(book[i].name,name)!= 0) return NULL;
+       //else if (strcmp(book[i].name,name)!= 0) return NULL;
    // } 
     return 0;
 }
@@ -109,7 +109,8 @@ int main()
     printf("5. Удаление записи\n");
     ch = getchar(); /* чтение клавиатуры */
 
-    switch (ch) {
+    switch (ch)
+    {
     case '1':
         add_record(book); break;
     case '2':
