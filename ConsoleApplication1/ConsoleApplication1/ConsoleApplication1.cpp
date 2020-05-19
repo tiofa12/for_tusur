@@ -31,8 +31,28 @@ char* get_phone(char* number)
 Возвращает  1, если запись создана 0  в противном случае. */
 int add_record(record** book)
 {
-    FILE* myfile; /// Указатель на поток данных
-    int c = 114; /// Код символа ‘r’
+    FILE* fp; /// Указатель на поток данных
+    char name[20], number[12];
+    int i = 0;
+    printf("Открытие файла : ");
+    fp = fopen("database", "w");
+    //get_name();
+    //get_phone();
+    if (fp == NULL)
+    { /// Проверка открытия файла
+        printf("Ошибка\n");
+        return -1;
+    }
+    else
+    printf("Выполнено\n");
+    printf("Запись в файл : ");
+    //fscanf(stdin, "%s%d", &record[i].name, &record[i].number);
+    fscanf(stdin, "%*c"); /* удаление возврата каретки из потока ввода */
+    /* запись в файл */
+    //fprintf(fp, "%s %d \n", &book[i].name, record[i].number);
+    fclose(fp);
+  /**  FILE* myfile; /// Указатель на поток данных
+    int c = 255; /// Код символа ‘r’
     int ec = -1; /// Для возвращаемого fputc значения.
     printf("Открытие файла : ");
     myfile = fopen("database", "w");
@@ -54,11 +74,11 @@ int add_record(record** book)
         printf("Ошибка\n");
     else
         printf("Выполнено\n");
-    return 0;
+    return 0;*/
 
 }
 
-/** Размещает запись new_rec  на странице, соответствующей первой букве фамилии. */
+/** Размещает запись new_rec на странице, соответствующей первой букве фамилии. */
 void insert_rec(record** book, record* new_rec)
 {
     return;
@@ -75,13 +95,52 @@ void insert_rec(record** book, record* new_rec)
 /** Ищет запись по фамилии name. Возвращает  указатель на запись, содержащую введённую фамилию.  NULL, если фамилии нет в книге. */
 record* search_record(record** book, char* name)
 {
+    FILE* myfile; /// Указатель на поток данных
+    int c; /// Считанный байт
+    printf("Открытие файла : ");
+    /** Открытие файла в режиме доступа «только чтение»
+     Файл ищется в текущей папке*/
+    myfile = fopen("database", "r");
+    if (myfile == NULL)
+    { /// Проверка открытия файла
+        printf("Ошибка\n");
+        //return -1;
+    }
+    else
+        printf("Выполнено\n");
+    printf("Коды считанных символов : \n");
+    while (1)
+    { /// Чтение байтов в бесконечном цикле
+        c = getc(myfile); /// Чтение одного байта из файла
+        if (c == EOF)
+        { /// Закончился файл или это ошибка чтения?
+            if (feof(myfile) != 0)
+            { /// Если файл закончился
+                printf("\nДостигнут конец файла\n");
+                break; /// Выход из бесконечного цикла
+            }
+            else
+            { /// Если при чтении произошла ошибка
+                printf("\nОшибка чтения из файла\n");
+                break; /// Выход из бесконечного цикла
+            }
+        }
+        /// Файл не закончился и не было ошибки чтения
+        printf(" % d ", c);
+    }
+    printf("Закрытие файла : ");
+    if (fclose(myfile) == EOF)
+        printf("Ошибка\n");
+    else
+        printf("Выполнено\n");
+    return 0;
+
    // int n;
    // for (int i = 0; i < n; i++)
    // {
         //if (strcmp(book[i].name, name) == 0) return ?;
        //else if (strcmp(book[i].name,name)!= 0) return NULL;
    // } 
-    return 0;
 }
 
 /** Удаляет запись, связанную с фамилией name. Возвращает 0, если запись не существует. */
@@ -108,9 +167,13 @@ int main()
     printf("4. Изменение телефона в существующей записи\n");
     printf("5. Удаление записи\n");
     ch = getchar(); /* чтение клавиатуры */
+<<<<<<< HEAD
 
     switch (ch)
     {
+=======
+    switch (ch) {
+>>>>>>> 1670b323b0ab3d686bd8ac663cf71fce560f32b5
     case '1':
         add_record(book); break;
     case '2':
