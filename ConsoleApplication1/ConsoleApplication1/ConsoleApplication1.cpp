@@ -51,6 +51,7 @@ void insert_rec(record** book, record* new_rec)
 record* search_record(record** book, char* name)
 {
 
+
 }
 
 /** Удаляет запись, связанную с фамилией name. Возвращает 0, если запись не существует. */
