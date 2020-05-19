@@ -4,11 +4,12 @@
 #define LEN_S 20
 #define LEN_P 12
 
+
 typedef struct
 {
     char name[LEN_S];     /// Фамилия      
     char number[LEN_P];   /// Номер телефона     
-    //struct record* next;  /// Адрес след. записи 
+    struct record1* next;  /// Адрес след. записи 
 } record;
 record* book[30] = { NULL };
 
@@ -27,7 +28,7 @@ char* get_phone(char* number)
 }
 
 /** Создаёт новую запись и помещает её в телефонную книгу. Вызывает insert_rec().book - массив указателей на начала страниц. 
-Возвращает  1, если запись создана      0  в противном случае. */
+Возвращает  1, если запись создана 0  в противном случае. */
 int add_record(record** book)
 {
     return 0;
@@ -78,6 +79,7 @@ int main()
     if (fp != NULL) //проверка открытия файла
         printf("Файл для считывания открылся!\n");
     else printf("Файл открыть не удалось");
+    
     fclose(fp); //закрыли файл
     system("pause");
 }
