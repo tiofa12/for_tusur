@@ -10,7 +10,7 @@ typedef struct
     char number[LEN_P];   /// Номер телефона     
     //struct record* next;  /// Адрес след. записи 
 } record;
-//record* book[30] = { NULL };
+record* book[30] = { NULL };
 
 
 
