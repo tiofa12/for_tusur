@@ -51,8 +51,12 @@ void insert_rec(record** book, record* new_rec)
 /** Ищет запись по фамилии name. Возвращает  указатель на запись, содержащую введённую фамилию.  NULL, если фамилии нет в книге. */
 record* search_record(record** book, char* name)
 {
-
-    return 0;
+    int n;
+    for (int i = 0; i < n; i++)
+    {
+        if (strcmp(book[i].name, name) == 0) return ?;
+        else if (strcmp(book[i].name,name)!= 0) return NULL;
+    } 
 }
 
 /** Удаляет запись, связанную с фамилией name. Возвращает 0, если запись не существует. */
