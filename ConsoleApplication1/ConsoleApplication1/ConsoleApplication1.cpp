@@ -31,7 +31,31 @@ char* get_phone(char* number)
 Возвращает  1, если запись создана 0  в противном случае. */
 int add_record(record** book)
 {
+    FILE* myfile; /// Указатель на поток данных
+    int c = 114; /// Код символа ‘r’
+    int ec = -1; /// Для возвращаемого fputc значения.
+    printf("Открытие файла : ");
+    myfile = fopen("database", "w");
+    if (myfile == NULL)
+    { /// Проверка открытия файла
+        printf("Ошибка\n");
+        return -1;
+    }
+    else
+        printf("Выполнено\n");
+    printf("Запись в файл : ");
+    ec = putc(c, myfile);
+    if (ec == EOF) /// Проверка записи
+        printf("ошибка записи\n");
+    else
+        printf("записан символ '%c'\n", ec);
+    printf("Закрытие файла : ");
+    if (fclose(myfile) == EOF)
+        printf("Ошибка\n");
+    else
+        printf("Выполнено\n");
     return 0;
+
 }
 
 /** Размещает запись new_rec  на странице, соответствующей первой букве фамилии. */
@@ -51,12 +75,13 @@ void insert_rec(record** book, record* new_rec)
 /** Ищет запись по фамилии name. Возвращает  указатель на запись, содержащую введённую фамилию.  NULL, если фамилии нет в книге. */
 record* search_record(record** book, char* name)
 {
-    int n;
-    for (int i = 0; i < n; i++)
-    {
-        if (strcmp(book[i].name, name) == 0) return ?;
-        else if (strcmp(book[i].name,name)!= 0) return NULL;
-    } 
+   // int n;
+   // for (int i = 0; i < n; i++)
+   // {
+        //if (strcmp(book[i].name, name) == 0) return ?;
+       // else if (strcmp(book[i].name,name)!= 0) return NULL;
+   // } 
+    return 0;
 }
 
 /** Удаляет запись, связанную с фамилией name. Возвращает 0, если запись не существует. */
@@ -75,16 +100,28 @@ int update_record(record** book)
 int main()
 {
     SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);   
-    FILE* fp;
-    record **book;
-    record *new_rec;
-    fp = fopen("database", "w");
-    if (fp != NULL) //проверка открытия файла
-        printf("Файл для считывания открылся!\n");
-    else printf("Файл открыть не удалось");
-    
-    fclose(fp); //закрыли файл
-    system("pause");
+    SetConsoleOutputCP(1251);
+    char ch;
+    printf("1. Добавление записи\n");
+    printf("2. Поиск по фамилии\n");
+    printf("3. Изменение фамилии в существующей записи\n");
+    printf("4. Изменение телефона в существующей записи\n");
+    printf("5. Удаление записи\n");
+    ch = getchar(); /* чтение клавиатуры */
+
+    switch (ch) {
+    case '1':
+        add_record(book); break;
+    case '2':
+        search_record(book, 0); break;
+    case '3':
+        update_record(book); break;
+    case '4':
+        update_record(book); break;
+    case '5':
+        delete_record(book, 0); break;
+    default:
+        printf("No option selected");
+    }
 }
 
