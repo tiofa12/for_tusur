@@ -72,19 +72,12 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);   
     FILE* fp;
-<<<<<<< HEAD
     record **book;
     record *new_rec;
-    fp = fopen("databayse", "w");
-=======
     fp = fopen("database", "w");
->>>>>>> 98a21be92787073ea79e0f257d561c2e69e91984
     if (fp != NULL) //проверка открытия файла
         printf("Файл для считывания открылся!\n");
     else printf("Файл открыть не удалось");
-
-
-
     fclose(fp); //закрыли файл
     system("pause");
 }
