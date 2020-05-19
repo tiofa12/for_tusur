@@ -10,7 +10,7 @@ typedef struct
     char number[LEN_P];   /// Номер телефона     
     struct record* next;  /// Адрес след. записи 
 } record;
-record* book[30] = { NULL };
+//record* book[30] = { NULL };
 
 
 
@@ -70,6 +70,13 @@ int update_record(record** book)
 int main()
 {
     SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);    
+    SetConsoleOutputCP(1251);   
+    FILE* fp;
+    fp = fopen("databayse", "r+a");
+    if (fp != NULL) //проверка открытия файла
+        printf("Файл для считывания открылся!\n");
+    else printf("Файл открыть не удалось");
+       
+
 }
 
