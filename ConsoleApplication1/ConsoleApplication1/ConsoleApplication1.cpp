@@ -72,11 +72,16 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);   
     FILE* fp;
-    fp = fopen("databayse", "r+a");
+    record **book;
+    record *new_rec;
+    fp = fopen("databayse", "w");
     if (fp != NULL) //проверка открытия файла
         printf("Файл для считывания открылся!\n");
     else printf("Файл открыть не удалось");
-       
 
+
+
+    fclose(fp); //закрыли файл
+    system("pause");
 }
 
