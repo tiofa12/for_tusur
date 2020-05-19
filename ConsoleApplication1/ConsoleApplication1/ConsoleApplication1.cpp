@@ -8,7 +8,7 @@ typedef struct
 {
     char name[LEN_S];     /// Фамилия      
     char number[LEN_P];   /// Номер телефона     
-    struct record* next;  /// Адрес след. записи 
+    //struct record* next;  /// Адрес след. записи 
 } record;
 //record* book[30] = { NULL };
 
@@ -17,26 +17,26 @@ typedef struct
 /** Запрашивает ввод фамилии из stdin. Принимает только буквы русского алфавита. Все буквы приводятся к верхнему регистру. Возвращает name. */
 char* get_name(char* name)
 {
-
+    return 0;
 }
 
 /** Запрашивает ввод номера телефона из stdin. Принимаются только цифры. Возвращает number. */
 char* get_phone(char* number)
 {
-
+    return 0;
 }
 
 /** Создаёт новую запись и помещает её в телефонную книгу. Вызывает insert_rec().book - массив указателей на начала страниц. 
 Возвращает  1, если запись создана      0  в противном случае. */
 int add_record(record** book)
 {
-
+    return 0;
 }
 
 /** Размещает запись new_rec  на странице, соответствующей первой букве фамилии. */
 void insert_rec(record** book, record* new_rec)
 {
-
+    return;
 }
 
 
@@ -51,19 +51,19 @@ void insert_rec(record** book, record* new_rec)
 record* search_record(record** book, char* name)
 {
 
-
+    return 0;
 }
 
 /** Удаляет запись, связанную с фамилией name. Возвращает 0, если запись не существует. */
 int delete_record(record** book, char* name)
 {
-
+    return 0;
 }
 
 /** Изменяет запись. Вызывает get_name() и get_phone(), insert_rec(), search_record(), delete_record(). Возвращает 0, если запись не существует. */
 int update_record(record** book)
 {
-
+    return 0;
 }
 
 
@@ -72,9 +72,13 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);   
     FILE* fp;
+<<<<<<< HEAD
     record **book;
     record *new_rec;
     fp = fopen("databayse", "w");
+=======
+    fp = fopen("database", "w");
+>>>>>>> 98a21be92787073ea79e0f257d561c2e69e91984
     if (fp != NULL) //проверка открытия файла
         printf("Файл для считывания открылся!\n");
     else printf("Файл открыть не удалось");
