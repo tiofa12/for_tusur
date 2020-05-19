@@ -167,13 +167,10 @@ int main()
     printf("4. Изменение телефона в существующей записи\n");
     printf("5. Удаление записи\n");
     ch = getchar(); /* чтение клавиатуры */
-<<<<<<< HEAD
+
 
     switch (ch)
     {
-=======
-    switch (ch) {
->>>>>>> 1670b323b0ab3d686bd8ac663cf71fce560f32b5
     case '1':
         add_record(book); break;
     case '2':
